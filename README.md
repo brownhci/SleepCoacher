@@ -29,13 +29,18 @@ $ python run_sleep_as_android.py
 
 output: 2 files: sleep.csv and sensors.csv. The the output files are saved in two different folders - Sleep and Sensors - under the name of the user. So in folder Sleep, there is currently 1 file, named "sleeper1.csv". Same for the Sensors folder. 
 
-4) FORMAT DATA IN A VIEWER-FRIENDLY WAY AND CALCULATE SLEEP ONSET LATENCY + NUMBER OF AWAKENINGS
+4) FORMAT DATA
+
+In order to format the data in a viewer-friendly way, use the following script. It also calculates the sleep onset latency and the number of awakenings. 
+
 input: the files in the UserData folder. 
+
 $ python pullinfo.py
 
 output: a folder "SimpleData"; in that folder there is one file per user with the date, rating, hoursslept, onset latency, total nubmer of awakenings, and number of awakenings per hour for every night. 
 
 5) CALCULATE CORRELATIONS 
+
 To calculate correlations and summary statistics for each user, use the following script, which creates the correlation and summary tables for each participant 
 
 $ python postSleepAnalyzer.py
@@ -45,6 +50,7 @@ Each file in "UserMaxCorrelations" contains the two top highest positive and neg
 Each file in "UserCorrelations" contains all the correlation coefficients between all the indepedent variables and the dependent variables. 
 
 6) PICK A RECOMMENDATION BASED ON HIGHEST CORRELATION.
+
 We pick the highest correlation for each user based on the ouput from step 4. 
 
 $ python pick_recs.py
