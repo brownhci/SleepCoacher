@@ -35,8 +35,8 @@ $ python pullinfo.py
 
 output: a folder "SimpleData"; in that folder there is one file per user with the date, rating, hoursslept, onset latency, total nubmer of awakenings, and number of awakenings per hour for every night. 
 
-5) CALCULATE CORRELATIONS AND SUMMARY STATS AND CREATE CORRELATION + summary TABLES FOR EACH USER
-input: 
+5) CALCULATE CORRELATIONS 
+To calculate correlations and summary statistics for each user, use the following script, which creates the correlation and summary tables for each participant 
 
 $ python postSleepAnalyzer.py
 
