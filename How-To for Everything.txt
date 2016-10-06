@@ -35,8 +35,7 @@ $ python pullinfo.py
 
 output: a folder "SimpleData"; in that folder there is one file per user with the date, rating, hoursslept, onset latency, total nubmer of awakenings, and number of awakenings per hour for every night. 
 
-5) CALCULATE CORRELATIONS AND SUMMARY STATS
-# AND CREATE CORRELATION + summary TABLES FOR EACH USER
+5) CALCULATE CORRELATIONS AND SUMMARY STATS AND CREATE CORRELATION + summary TABLES FOR EACH USER
 input: 
 
 $ python postSleepAnalyzer.py
@@ -53,10 +52,13 @@ $ python pick_recs.py
 output: a folder, "main_recommendatins" which contains one csv for each user. in each csv, there is a single line with the text of the recommendation fo this user.
 
 7) To send the main recommendations, we used a scheduled cron job and mailx.
+
 (in crontab): mailx -s "sleep recommendation" phonenumber@carrier.com < ../main_recommendations/sleeperID.csv
 
 8) GENERATE AND SEND DAILY SLEEP FEEDBACK
+
 $ python get_daily_updates.py
+
 output: a folder called "" that contains a csv file for each user with their daily update. 
 We used crontab again to send the daily feedback. 
 mailx -s "daily sleep feedback" phonenumber@carrier.com < ../daily_updates/sleeperID.csv
@@ -66,6 +68,7 @@ get_daily_updates must be run each day. It gives the daily feedback in relation 
 9) At the end of the experiment, we calculate p-values and differences of means for each participant. 
 
 10) Generate the conclusion messages for each user and send them via crontab. 
+
 mailx -s "sleep recommendation" phonenumber@carrier.com < ../main_recommendations/sleeperID.csv
 
 11) Repeat this cycle, starting from the beginning to generate phases again for the new round.
