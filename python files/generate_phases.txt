@@ -1,0 +1,5 @@
+library(SCRT)
+phases=assignments("ABAB", "no", 21, 5)
+sink("output.csv", append=FALSE, split=FALSE)
+print(phases)
+sink()

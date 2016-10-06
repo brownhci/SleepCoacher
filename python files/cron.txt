@@ -1,0 +1,2 @@
+01 22 13 2 * mailx -s "sleep recommendations" number@vzwpix.com < main_recommendations/sleeper1.csv
+00 22 13 2 * mailx -s "daily feedback" number@vzwpix.com < daily_updates/sleeper1.csv

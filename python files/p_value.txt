@@ -1,0 +1,16 @@
+# R script to calculate the p_value based on (Heyvaert & Onghena, 2013)
+# Takes as input "ABAB.txt" which contains right now 21 rows and 2 columns on each row. Each row is a day of the study, with the first row being the first day. The first column is the name of the phases ("A1", "B1", "A2", "B2") and the second column (tab separated) contains the value for the DV for that day.
+# The output is a single p_value and is saved in a file called "output.txt" in the current directory. The file looks something like this "[1] 0.03" and the [1] is just the line number from the output from R. The "0.03" would be the calculated p value. 
+# We run this script by calling "source("p_value.txt")" in R or by running a cron job like this:
+# 38 21 28 01 * Rscript p_value.txt
+
+library(SCRT)
+ABAB <- read.table("ABAB.txt")
+quantity("ABAB", 21, 3)
+observed("ABAB", "AA-BB", ABAB)
+distribution.systematic("ABAB","AA-BB", "no", 3, ABAB)
+pval = pvalue.systematic("ABAB", "AA-BB", "no",3, ABAB)
+sink("output.txt", append=FALSE, split=FALSE)
+print(pval)
+sink()
+
